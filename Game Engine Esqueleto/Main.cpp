@@ -1,6 +1,7 @@
 #pragma once
 #include "AnimationMng.h"
 #include "AudioMng.h"
+#include "EventList.h"
 #include "FileSystemMng.h"
 #include "InputMng.h"
 #include "MemoryMng.h"
@@ -12,10 +13,11 @@
 #include <string>
 #include <iostream>
 
+
 int main()
 {
-	bool exit = false;
-	std::string end;
+	bool exit_ = false;
+	//std::string end;
 
 	AnimationMng& myAnimation = AnimationMng::instance();
 	AudioMng& myAudio = AudioMng::instance();
@@ -40,27 +42,26 @@ int main()
 	myAnimation.Start();
 
 
-	while (!exit)
+	while (!myInput.exit_)
 	{
-		//std::cin >> end;
-		if (end == "end")
-		{
-			exit = true;
-		}
+		////std::cin >> end;
+		//if (end == "end")
+		//{
+		//	exit = true;
+		//}
 
-		else
-		{
+		//else
+		//{
 			myMemory.Run();
-			//myRender.Run();
-			//myInput.Run();
-			//myFileSystem.Run();
-			//myPhysicsDynamics.Run();
-			//myPhysics.Run();
-			//myVideo.Run();
-			//myTexture.Run();
-			//myAudio.Run();
-			//myAnimation.Run();
-		}
+			myRender.Run();
+			myFileSystem.Run();
+			myPhysicsDynamics.Run();
+			myPhysics.Run();
+			myVideo.Run();
+			myTexture.Run();
+			myAudio.Run();
+			myAnimation.Run();
+		//}
 	}
 
 	myAnimation.Shutdown();

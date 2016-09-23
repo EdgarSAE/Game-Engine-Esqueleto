@@ -16,7 +16,8 @@ void FileSystemMng::Start()
 
 void FileSystemMng::Run()
 {
-	std::cout << "Running File System Manager\n";
+	//std::cout << "Running File System Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running File System Manager\n"; });
 }
 
 void FileSystemMng::Shutdown()

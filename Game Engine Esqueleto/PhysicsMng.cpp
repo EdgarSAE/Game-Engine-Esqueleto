@@ -16,7 +16,8 @@ void PhysicsMng::Start()
 
 void PhysicsMng::Run()
 {
-	std::cout << "Running Physics Manager\n";
+	//std::cout << "Running Physics Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Physics Manager\n"; });
 }
 
 void PhysicsMng::Shutdown()

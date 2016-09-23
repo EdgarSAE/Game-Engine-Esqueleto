@@ -14,13 +14,14 @@ public:
 
 	int eType = 1;
 	bool start = false;
+	bool exit_ = false;
 
 	void Start();
 	void Run();
 	void Shutdown();
-	void Listener();
+	void AddListener();
 
-	Events tail[3];
+	//Events tail[3];
 	Events temp;
 
 	queue<Events> myQueue;

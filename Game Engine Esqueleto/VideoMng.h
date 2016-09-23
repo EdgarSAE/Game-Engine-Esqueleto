@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <mutex>
 
 class VideoMng
 {
@@ -9,6 +10,8 @@ public:
 	void Start();
 	void Run();
 	void Shutdown();
+
+	std::once_flag flag1;
 
 private:
 	VideoMng();

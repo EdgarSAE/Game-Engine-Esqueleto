@@ -20,29 +20,30 @@ void RenderMng::Run()
 	updateSceneElements();
 	renderScene();
 	swapBuffers();
+	std::call_once(flag1, []() { std::cout << "Running Render Manager\n"; });
 }
 
 void RenderMng::Shutdown()
 {
-	std::cout << "Shutting down Render Manager\n";
+	//std::cout << "Shutting down Render Manager\n";
 }
 
 void RenderMng::updateCamera()
 {
-	std::cout << "corre updateCamera()\n";
+	//std::cout << "corre updateCamera()\n";
 }
 
 void RenderMng::updateSceneElements()
 {
-	std::cout << "corre updateSceneElements()\n";
+	//std::cout << "corre updateSceneElements()\n";
 }
 
 void RenderMng::renderScene()
 {
-	std::cout << "corre renderScene()\n";
+	//std::cout << "corre renderScene()\n";
 }
 
 void RenderMng::swapBuffers()
 {
-	std::cout << "corre swapBuffers()\n";
+	//std::cout << "corre swapBuffers()\n";
 }
