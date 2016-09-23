@@ -12,7 +12,7 @@ bool EventList::Callback()
 	{
 	case 1:
 		std::cout << "soy 1\n";
-		return true;
+		return false;
 		break;
 	case 2:
 		std::cout << "soy 2\n";
@@ -20,7 +20,21 @@ bool EventList::Callback()
 		break;
 	case 3:
 		std::cout << "soy 3\n";
+		return false;
+		break;
+	case 4:
+		std::cout << "soy 4\n";
+		return false;
+		break;
+	case 5:
+		std::cout << "soy 5\n" << "Shutting down system\n";
 		return true;
 		break;
 	}
+}
+
+bool EventList::Exit()
+{
+	exit_ = true;
+	return exit;
 }

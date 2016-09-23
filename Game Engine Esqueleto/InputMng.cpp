@@ -14,7 +14,7 @@ InputMng::InputMng()
 void InputMng::Start()
 {
 	std::cout << "Start Input Manager\n";
-	Listener();
+	AddListener();
 	start = true;
 	std::thread thread(&InputMng::Run, this);
 	thread.detach();
@@ -70,6 +70,31 @@ void InputMng::Run()
 				cout << "(B) button pressed" << endl;
 			}
 
+			if (gamepad.IsPressed(XINPUT_GAMEPAD_X))
+			{
+				Events(3);
+				myQueue.push(3);
+
+				cout << "(X) button pressed" << endl;
+			}
+
+			if (gamepad.IsPressed(XINPUT_GAMEPAD_Y))
+			{
+				Events(4);
+				myQueue.push(4);
+
+				cout << "(Y) button pressed" << endl;
+			}
+
+			if (gamepad.IsPressed(XINPUT_GAMEPAD_START))
+			{
+				Events(5);
+				myQueue.push(5);
+
+				cout << "(START) button pressed Shutting down system" << endl;
+				exit_ = true;
+			}
+
 			while (!myQueue.empty())
 			{
 				temp = myQueue.front();
@@ -96,8 +121,10 @@ void InputMng::Shutdown()
 	cout << "Shutting down Input Manager\n";
 }
 
-void InputMng::Listener()
+void InputMng::AddListener()
 {
+	myList.push_front(5);
+	myList.push_front(4);
 	myList.push_front(3);
 	myList.push_front(2);
 	myList.push_front(1);

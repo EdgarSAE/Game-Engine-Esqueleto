@@ -16,7 +16,8 @@ void AudioMng::Start()
 
 void AudioMng::Run()
 {
-	std::cout << "Running Audio Manager\n";
+	//std::cout << "Running Audio Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Audio Manager\n"; });
 }
 
 void AudioMng::Shutdown()

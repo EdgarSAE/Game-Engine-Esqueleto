@@ -16,7 +16,8 @@ void TextureMng::Start()
 
 void TextureMng::Run()
 {
-	std::cout << "Running Texture Manager\n";
+	//std::cout << "Running Texture Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Texture Manager\n"; });
 }
 
 void TextureMng::Shutdown()

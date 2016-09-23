@@ -16,7 +16,8 @@ void AnimationMng::Start()
 
 void AnimationMng::Run()
 {
-	std::cout << "Running Animation Manager\n";
+	//std::cout << "Running Animation Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Animation Manager\n"; });
 }
 
 void AnimationMng::Shutdown()

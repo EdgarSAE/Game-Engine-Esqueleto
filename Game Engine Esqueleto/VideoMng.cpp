@@ -16,7 +16,8 @@ void VideoMng::Start()
 
 void VideoMng::Run()
 {
-	std::cout << "Running Video Manager\n";
+	//std::cout << "Running Video Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Video Manager\n"; });
 }
 
 void VideoMng::Shutdown()
