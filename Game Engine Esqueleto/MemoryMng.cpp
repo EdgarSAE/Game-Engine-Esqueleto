@@ -16,7 +16,8 @@ void MemoryMng::Start()
 
 void MemoryMng::Run()
 {
-	std::cout << "Running Memory Manager\n";
+	//std::cout << "Running Memory Manager\n";
+	std::call_once(flag1, []() { std::cout << "Running Memory Manager\n"; });
 }
 
 void MemoryMng::Shutdown()

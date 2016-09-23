@@ -2,6 +2,8 @@
 #include "GamePad.h"
 #include <queue>
 #include <list>
+#include <thread>
+#include <iostream>
 #include "Events.h"
 #include "EventList.h"
 
@@ -21,8 +23,8 @@ public:
 	Events tail[3];
 	Events temp;
 
-	queue<Events> Tail;
-	list<EventList> List;
+	queue<Events> myQueue;
+	list<EventList> myList;
 
 private:
 	InputMng();

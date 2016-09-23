@@ -51,15 +51,15 @@ int main()
 		else
 		{
 			myMemory.Run();
-			myRender.Run();
+			//myRender.Run();
 			//myInput.Run();
-			myFileSystem.Run();
-			myPhysicsDynamics.Run();
-			myPhysics.Run();
-			myVideo.Run();
-			myTexture.Run();
-			myAudio.Run();
-			myAnimation.Run();
+			//myFileSystem.Run();
+			//myPhysicsDynamics.Run();
+			//myPhysics.Run();
+			//myVideo.Run();
+			//myTexture.Run();
+			//myAudio.Run();
+			//myAnimation.Run();
 		}
 	}
 

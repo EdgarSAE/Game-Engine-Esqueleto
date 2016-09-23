@@ -1,6 +1,6 @@
 #include "InputMng.h"
-#include <iostream>
-#include <thread>
+
+
 InputMng& InputMng::instance()
 {
 	static InputMng *instance = new InputMng();
@@ -50,14 +50,14 @@ void InputMng::Run()
 				cout << "Controller connected on port " << gamepad.GetPort() << endl;
 			}
 
-			cout << "Left thumb stick: (" << gamepad.leftStickX << ", " << gamepad.leftStickY << ")   Right thumb stick : (" << gamepad.rightStickX << ", " << gamepad.rightStickY << ")" << endl;
+			//cout << "Left thumb stick: (" << gamepad.leftStickX << ", " << gamepad.leftStickY << ")   Right thumb stick : (" << gamepad.rightStickX << ", " << gamepad.rightStickY << ")" << endl;
 
-			cout << "Left analog trigger: " << gamepad.leftTrigger << "   Right analog trigger: " << gamepad.rightTrigger << endl;
+			//cout << "Left analog trigger: " << gamepad.leftTrigger << "   Right analog trigger: " << gamepad.rightTrigger << endl;
 
 			if (gamepad.IsPressed(XINPUT_GAMEPAD_A))
 			{
 				Events(1);
-				Tail.push(1);
+				myQueue.push(1);
 
 				cout << "(A) button pressed" << endl;
 			}
@@ -65,16 +65,16 @@ void InputMng::Run()
 			if (gamepad.IsPressed(XINPUT_GAMEPAD_B))
 			{
 				Events(2);
-				Tail.push(2);
+				myQueue.push(2);
 
 				cout << "(B) button pressed" << endl;
 			}
 
-			while (!Tail.empty())
+			while (!myQueue.empty())
 			{
-				temp = Tail.front();
-				Tail.pop();
-				for (list<EventList>::iterator it = List.begin(); it != List.end(); ++it)
+				temp = myQueue.front();
+				myQueue.pop();
+				for (list<EventList>::iterator it = myList.begin(); it != myList.end(); ++it)
 				{
 					if (temp.type == it->type)
 					{
@@ -98,7 +98,7 @@ void InputMng::Shutdown()
 
 void InputMng::Listener()
 {
-	List.push_front(3);
-	List.push_front(2);
-	List.push_front(1);
+	myList.push_front(3);
+	myList.push_front(2);
+	myList.push_front(1);
 }
